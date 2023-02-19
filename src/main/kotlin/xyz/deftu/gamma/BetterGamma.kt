@@ -49,7 +49,8 @@ object BetterGamma : ClientModInitializer {
         KeyBindingHelper.registerKeyBinding(nightVisionKeyBinding)
 
         InputEvent.EVENT.register { handle, button, action, mods, scancode, type ->
-            if (MinecraftClient.getInstance().world == null || action != InputAction.RELEASE) return@register
+            val minecraft = MinecraftClient.getInstance()
+            if (minecraft.world == null || minecraft.currentScreen != null || action != InputAction.RELEASE) return@register
 
             if (
                 toggleKeyBinding.matchesKey(button, scancode) ||
