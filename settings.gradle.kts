@@ -25,8 +25,8 @@ pluginManagement {
         kotlin("jvm") version(kotlin)
         kotlin("plugin.serialization") version(kotlin)
 
-        val epgt = "1.0.0"
-        id("xyz.deftu.gradle.multiversion-root") version(epgt)
+        val dgt = "1.5.1"
+        id("xyz.deftu.gradle.multiversion-root") version(dgt)
     }
 }
 
@@ -36,7 +36,6 @@ rootProject.name = projectName
 rootProject.buildFileName = "build.gradle.kts"
 
 listOf(
-    "1.18.2-fabric",
     "1.19.2-fabric"
 ).forEach { version ->
     include(":$version")

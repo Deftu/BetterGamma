@@ -1,23 +1,17 @@
 <div align="center">
 <center>
 
-# [`Fabric Mod Template`]
-A project template for modding Minecraft
-with Fabric.
+# BetterGamma
+A Minecraft mod which improves how you deal with lighting in dark places.
 
 </center>
 </div>
-
-## I don't know what I'm doing, can you help?!
-Please read the [Fabric wiki][fwiki] before
-coming to one of my communities for modding
-support.
 
 <div align="center">
 <center>
 
 **This project is licensed under [LGPL-3.0][lgpl]**\
-**&copy; 2022 [Deftu][deftu]**
+**&copy; 2023 [Deftu][deftu]**
 
 </center>
 </div>
