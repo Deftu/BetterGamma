@@ -4,6 +4,7 @@ import gg.essential.vigilance.Vigilant
 import gg.essential.vigilance.data.Property
 import gg.essential.vigilance.data.PropertyType
 import net.fabricmc.loader.api.FabricLoader
+import net.minecraft.client.MinecraftClient
 import java.io.File
 
 private val deftuDir by lazy {
@@ -44,4 +45,11 @@ object BetterGammaConfig : Vigilant(
         description = "Enable night vision",
         category = "General"
     ) @JvmStatic var nightVision = false
+
+    init {
+        registerListener<Boolean>("nightVision") { value ->
+            BetterGamma.updateNightVision(value)
+            MinecraftClient.getInstance().worldRenderer?.reload()
+        }
+    }
 }

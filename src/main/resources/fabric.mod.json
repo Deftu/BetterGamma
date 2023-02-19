@@ -7,6 +7,7 @@
     "authors": [
         "Deftu"
     ],
+    "icon": "assets/${mod_id}/icon.png",
     "contact": {
         "issues": "https://github.com/Deftu/BetterGamma/issues",
         "sources": "https://github.com/Deftu/BetterGamma"

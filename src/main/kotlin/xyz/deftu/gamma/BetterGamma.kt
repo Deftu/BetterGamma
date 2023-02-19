@@ -5,6 +5,7 @@ import gg.essential.universal.UKeyboard
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents
 import net.minecraft.client.MinecraftClient
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectInstance
@@ -98,9 +99,13 @@ object BetterGamma : ClientModInitializer {
                 MinecraftClient.getInstance().worldRenderer.reload()
             }
         }
+
+        ClientPlayConnectionEvents.JOIN.register { _, _, _ ->
+            updateNightVision(BetterGammaConfig.nightVision)
+        }
     }
 
-    private fun updateNightVision(newValue: Boolean) {
+    internal fun updateNightVision(newValue: Boolean) {
         val minecraft = MinecraftClient.getInstance()
         val player = minecraft.player ?: return
 
