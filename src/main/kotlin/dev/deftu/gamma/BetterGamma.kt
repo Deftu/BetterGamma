@@ -1,4 +1,4 @@
-package xyz.deftu.gamma
+package dev.deftu.gamma
 
 import gg.essential.universal.ChatColor
 import gg.essential.universal.UKeyboard
@@ -11,22 +11,20 @@ import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.potion.Potions
 import net.minecraft.util.Formatting
-import xyz.deftu.lib.client.ToggleKeyBinding
-import xyz.deftu.lib.events.InputAction
-import xyz.deftu.lib.events.InputEvent
-import xyz.deftu.lib.utils.ChatHelper
-import xyz.deftu.lib.utils.ChatPrefixType
-import xyz.deftu.lib.utils.TextHelper
-import xyz.deftu.lib.utils.prefix
+import dev.deftu.lib.client.ToggleKeyBinding
+import dev.deftu.lib.events.InputAction
+import dev.deftu.lib.events.InputEvent
+import dev.deftu.lib.utils.ChatHelper
+import dev.deftu.lib.utils.ChatPrefixType
+import dev.deftu.lib.utils.TextHelper
+import dev.deftu.lib.utils.prefix
 
 object BetterGamma : ClientModInitializer {
     const val NAME = "@MOD_NAME@"
-    const val ID = "@MOD_ID@"
-    const val VERSION = "@MOD_VERSION@"
+    private const val ID = "@MOD_ID@"
 
-    val chatPrefix = prefix {
+    private val chatPrefix = prefix {
         name = NAME
         color = ChatColor.BLUE
         brackets {
@@ -36,10 +34,11 @@ object BetterGamma : ClientModInitializer {
         }
     }
 
-    val toggleKeyBinding: ToggleKeyBinding by lazy {
+    private val toggleKeyBinding: ToggleKeyBinding by lazy {
         ToggleKeyBinding("key.$ID.toggle", UKeyboard.KEY_G, "key.categories.misc")
     }
-    val nightVisionKeyBinding: ToggleKeyBinding by lazy {
+
+    private val nightVisionKeyBinding: ToggleKeyBinding by lazy {
         ToggleKeyBinding("key.$ID.nightvision", UKeyboard.KEY_H, "key.categories.misc")
     }
 
@@ -48,7 +47,7 @@ object BetterGamma : ClientModInitializer {
         KeyBindingHelper.registerKeyBinding(toggleKeyBinding)
         KeyBindingHelper.registerKeyBinding(nightVisionKeyBinding)
 
-        InputEvent.EVENT.register { handle, button, action, mods, scancode, type ->
+        InputEvent.EVENT.register { _, button, action, _, scancode, _ ->
             val minecraft = MinecraftClient.getInstance()
             if (minecraft.world == null || minecraft.currentScreen != null || action != InputAction.RELEASE) return@register
 
@@ -119,7 +118,7 @@ object BetterGamma : ClientModInitializer {
 
     private fun givePermanentEffect(
         player: PlayerEntity,
-        effect: StatusEffect
+        @Suppress("SameParameterValue") effect: StatusEffect
     ) {
         val instance = StatusEffectInstance(effect, -1)
         player.addStatusEffect(instance)

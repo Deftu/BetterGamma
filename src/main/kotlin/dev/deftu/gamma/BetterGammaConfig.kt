@@ -1,4 +1,4 @@
-package xyz.deftu.gamma
+package dev.deftu.gamma
 
 import gg.essential.vigilance.Vigilant
 import gg.essential.vigilance.data.Property

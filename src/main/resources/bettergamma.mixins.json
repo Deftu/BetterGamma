@@ -1,6 +1,6 @@
 {
     "required": true,
-    "package": "xyz.deftu.gamma.mixins",
+    "package": "dev.deftu.gamma.mixins",
     "compatibilityLevel": "JAVA_16",
     "injectors": {
         "defaultRequire": 1
