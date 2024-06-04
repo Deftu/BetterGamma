@@ -1,5 +1,9 @@
 package dev.deftu.gamma
 
+//#if MC >= 1.20.6
+//$$ import net.minecraft.registry.entry.RegistryEntry
+//#endif
+
 import gg.essential.universal.ChatColor
 import gg.essential.universal.UKeyboard
 import net.fabricmc.api.ClientModInitializer
@@ -118,7 +122,11 @@ object BetterGamma : ClientModInitializer {
 
     private fun givePermanentEffect(
         player: PlayerEntity,
+        //#if MC >= 1.20.6
+        //$$ @Suppress("SameParameterValue") effect: RegistryEntry<StatusEffect>
+        //#else
         @Suppress("SameParameterValue") effect: StatusEffect
+        //#endif
     ) {
         val instance = StatusEffectInstance(effect, -1)
         player.addStatusEffect(instance)
