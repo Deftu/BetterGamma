@@ -1,7 +1,7 @@
 package dev.deftu.gamma
 
 //#if MC >= 1.20.6
-//$$ import net.minecraft.registry.entry.RegistryEntry
+import net.minecraft.registry.entry.RegistryEntry
 //#endif
 
 import gg.essential.universal.ChatColor
@@ -71,6 +71,7 @@ object BetterGamma : ClientModInitializer {
             }
         }
 
+        var lastDimensionId: String? = null
         ClientTickEvents.END_CLIENT_TICK.register {
             val fullbrightToggle = toggleKeyBinding.toggle
             BetterGammaConfig.fullbright = if (fullbrightToggle) run {
@@ -102,6 +103,20 @@ object BetterGamma : ClientModInitializer {
                 BetterGammaConfig.writeData()
                 MinecraftClient.getInstance().worldRenderer.reload()
             }
+
+            val world = MinecraftClient.getInstance().world
+            if (world != null) {
+                val dimensionId = world.dimension?.effects?.toShortTranslationKey()
+                if (
+                    dimensionId != null &&
+                    lastDimensionId != dimensionId
+                ) {
+                    lastDimensionId = dimensionId
+                    updateNightVision(BetterGammaConfig.nightVision)
+                }
+            } else {
+                lastDimensionId = null
+            }
         }
 
         ClientPlayConnectionEvents.JOIN.register { _, _, _ ->
@@ -123,9 +138,9 @@ object BetterGamma : ClientModInitializer {
     private fun givePermanentEffect(
         player: PlayerEntity,
         //#if MC >= 1.20.6
-        //$$ @Suppress("SameParameterValue") effect: RegistryEntry<StatusEffect>
+        @Suppress("SameParameterValue") effect: RegistryEntry<StatusEffect>
         //#else
-        @Suppress("SameParameterValue") effect: StatusEffect
+        //$$ @Suppress("SameParameterValue") effect: StatusEffect
         //#endif
     ) {
         val instance = StatusEffectInstance(effect, -1)
