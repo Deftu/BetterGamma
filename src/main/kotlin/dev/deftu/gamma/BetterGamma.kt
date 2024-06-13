@@ -23,6 +23,7 @@ import dev.deftu.lib.utils.ChatHelper
 import dev.deftu.lib.utils.ChatPrefixType
 import dev.deftu.lib.utils.TextHelper
 import dev.deftu.lib.utils.prefix
+import net.minecraft.util.Identifier
 
 object BetterGamma : ClientModInitializer {
     const val NAME = "@MOD_NAME@"
@@ -71,7 +72,7 @@ object BetterGamma : ClientModInitializer {
             }
         }
 
-        var lastDimensionId: String? = null
+        var lastDimensionId: Identifier? = null
         ClientTickEvents.END_CLIENT_TICK.register {
             val fullbrightToggle = toggleKeyBinding.toggle
             BetterGammaConfig.fullbright = if (fullbrightToggle) run {
@@ -106,7 +107,7 @@ object BetterGamma : ClientModInitializer {
 
             val world = MinecraftClient.getInstance().world
             if (world != null) {
-                val dimensionId = world.dimension?.effects?.toShortTranslationKey()
+                val dimensionId = world.dimension?.effects
                 if (
                     dimensionId != null &&
                     lastDimensionId != dimensionId
