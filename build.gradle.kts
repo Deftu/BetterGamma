@@ -2,21 +2,22 @@ import com.modrinth.minotaur.dependencies.DependencyType
 import com.modrinth.minotaur.dependencies.ModDependency
 import dev.deftu.gradle.tools.minecraft.CurseRelation
 import dev.deftu.gradle.tools.minecraft.CurseRelationType
+import dev.deftu.gradle.utils.GameSide
 
 plugins {
     java
     kotlin("jvm")
-    kotlin("plugin.serialization")
     `maven-publish`
     id("dev.deftu.gradle.multiversion")
     id("dev.deftu.gradle.tools")
     id("dev.deftu.gradle.tools.resources")
-    id("dev.deftu.gradle.tools.blossom")
+    id("dev.deftu.gradle.tools.bloom")
     id("dev.deftu.gradle.tools.minecraft.loom")
     id("dev.deftu.gradle.tools.minecraft.releases")
 }
 
 toolkit.useDevAuth()
+toolkitLoomHelper.disableRunConfigs(GameSide.SERVER)
 
 repositories {
     maven("https://maven.terraformersmc.com/")
@@ -30,7 +31,7 @@ dependencies {
     modImplementation(mcData.modMenuDependency)
     modImplementation("net.fabricmc:fabric-language-kotlin:1.7.4+kotlin.1.6.21")
 
-    modImplementation("dev.deftu:DeftuLib-${mcData.versionStr}-${mcData.loader.name}:1.8.0")
+    modImplementation("dev.deftu:DeftuLib-${mcData.versionStr}-${mcData.loader.name}:1.8.1")
 }
 
 toolkitReleases {
