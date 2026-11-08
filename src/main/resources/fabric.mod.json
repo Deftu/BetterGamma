@@ -3,39 +3,34 @@
     "id": "${mod_id}",
     "version": "${mod_version}",
     "name": "${mod_name}",
-    "description": "",
+    "description": "${mod_description}",
     "authors": [
         "Deftu"
     ],
-    "icon": "assets/${mod_id}/icon.png",
+    "icon": "assets/bettergamma/logo.png",
     "contact": {
+        "homepage": "https://deftu.dev/",
         "issues": "https://github.com/Deftu/BetterGamma/issues",
         "sources": "https://github.com/Deftu/BetterGamma"
     },
-    "license": "LGPL-3.0-or-later",
+    "license": "AGPL-3.0-or-later",
     "environment": "client",
     "entrypoints": {
         "client": [
             {
                 "adapter": "kotlin",
-                "value": "dev.deftu.gamma.BetterGamma"
-            }
-        ],
-        "modmenu": [
-            {
-                "adapter": "kotlin",
-                "value": "dev.deftu.gamma.utils.ModMenuIntegration"
+                "value": "dev.deftu.bettergamma.BetterGamma"
             }
         ]
     },
     "mixins": [
-        "${mod_id}.mixins.json"
+        "bettergamma.mixins.json"
     ],
     "depends": {
-        "fabric-api": "*",
-        "fabricloader": ">=0.15.11",
+        "minecraft": "${minecraft_version_range}",
+        "fabricloader": ">=${loader_version}",
+        "java": ">=${java_version}",
         "fabric-language-kotlin": "*",
-        "minecraft": "~${minor_mc_version}",
-        "java": ">=17"
+        "oneconfigv1": ">=${oneconfig_version}"
     }
 }

@@ -1,11 +1,14 @@
 {
-    "required": true,
-    "package": "dev.deftu.gamma.mixins",
-    "compatibilityLevel": "JAVA_16",
-    "injectors": {
-        "defaultRequire": 1
-    },
-    "client": [
-        "LightmapTextureManagerMixin"
-    ]
+  "required": true,
+  "compatibilityLevel": "${java}",
+  "minVersion": "0.8",
+  "package": "dev.deftu.bettergamma.mixin",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "LightmapMixin",
+    "NightVisionMixin",
+    "NightVisionScaleMixin"
+  ]
 }
