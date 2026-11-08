@@ -13,21 +13,21 @@ classes
 *.ipr
 *.iws
 *.iml
-/.idea/*
-!/.idea/gradle.xml
+.idea
 
-# netbeans
-.nb-gradle
-.nb-gradle-properties
-
-# vs code
+# vscode
 .vscode
 
 # gradle
 build
 .gradle
 
+#Netbeans
+.nb-gradle
+.nb-gradle-properties
+
 # other
 run
 .DS_Store
 Thumbs.db
+.kotlin
