@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+    <rect width="1024" height="1024" fill="#C33F3F"/>
+    <mask id="moon-shadow">
+        <rect width="1024" height="1024" fill="#fff"/>
+        <circle cx="470" cy="330" r="215" fill="#000"/>
+    </mask>
+    <circle cx="390" cy="390" r="235" fill="#EDAFAF"/>
+    <circle cx="390" cy="390" r="235" fill="#E7928F" mask="url(#moon-shadow)"/>
+    <circle cx="300" cy="300" r="34" fill="#D36765"/>
+    <circle cx="420" cy="230" r="22" fill="#E7928F"/>
+    <circle cx="245" cy="455" r="22" fill="#D36765"/>
+    <g transform="rotate(12 615 620)">
+        <g stroke="#C33F3F" stroke-width="118" stroke-linecap="round">
+            <line x1="820" y1="620" x2="887" y2="620"/>
+            <line x1="760" y1="765" x2="807.3" y2="812.3"/>
+            <line x1="615" y1="825" x2="615" y2="892"/>
+            <line x1="470" y1="765" x2="422.7" y2="812.3"/>
+            <line x1="410" y1="620" x2="343" y2="620"/>
+            <line x1="470" y1="475" x2="422.7" y2="427.7"/>
+            <line x1="615" y1="415" x2="615" y2="348"/>
+            <line x1="760" y1="475" x2="807.3" y2="427.7"/>
+        </g>
+        <circle cx="615" cy="620" r="185" fill="#C33F3F"/>
+        <g stroke="#D4D4D9" stroke-width="58" stroke-linecap="round">
+            <line x1="820" y1="620" x2="887" y2="620"/>
+            <line x1="760" y1="765" x2="807.3" y2="812.3"/>
+            <line x1="615" y1="825" x2="615" y2="892"/>
+            <line x1="470" y1="765" x2="422.7" y2="812.3"/>
+            <line x1="410" y1="620" x2="343" y2="620"/>
+            <line x1="470" y1="475" x2="422.7" y2="427.7"/>
+            <line x1="615" y1="415" x2="615" y2="348"/>
+            <line x1="760" y1="475" x2="807.3" y2="427.7"/>
+        </g>
+        <circle cx="615" cy="620" r="155" fill="#D4D4D9"/>
+    </g>
+</svg>
