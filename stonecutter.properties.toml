@@ -1,13 +1,13 @@
 mod.id = "bettergamma"
 mod.name = "BetterGamma"
 mod.group = "dev.deftu"
-mod.version = "2.0.0"
+mod.version = "2.1.0"
 mod.description = "Fullbright that leaves your video settings alone."
 
 deps.fabric_loader = "0.19.3"
-deps.oneconfig = "1.6.2"
+deps.oneconfig = "1.9.0"
 
-loomx.loom_version = "1.17-SNAPSHOT"
+loomx.loom_version = "1.19-SNAPSHOT"
 
 publish.modrinth = "GbTwnB48"
 publish.curseforge = "828667"
