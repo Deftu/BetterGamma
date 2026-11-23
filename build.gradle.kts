@@ -9,7 +9,7 @@ plugins {
     id("net.fabricmc.fabric-loom-remap") version "1.19-SNAPSHOT" apply false
     id("ploceus") version "1.17.4" apply false
     id("dev.deftu.gradle.bloom") version "0.2.0"
-    id("me.modmuss50.mod-publish-plugin") version "2.2.0"
+    id("me.modmuss50.mod-publish-plugin") version "2.2.1"
 }
 
 val isOrnithe = stonecutter.current.version == "1.8.9"
